@@ -1,0 +1,21 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #fafafa;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+a {
+  color: var(--accent-color);
+}
+
+.site-container {
+  width: var(--container-width);
+  margin: 0 auto;
+  max-width: calc(100% - 30px);
+}
