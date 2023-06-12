@@ -1,5 +1,7 @@
+import DefaultTemplate from "../templates/default"
+
 export default function() {
-  return <>
-    <div className="site-container">404</div>
-  </>
+  return <DefaultTemplate>
+    404 Page!
+  </DefaultTemplate>
 }

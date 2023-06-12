@@ -1,0 +1,48 @@
+#MAIN_HEADER {
+  background: #FFF;
+  padding: .5em 0;
+  margin-bottom: 3em;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-brand {
+  font-size: 1.5em;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: var(--font-family-second);
+  color: var(--accent-color);
+}
+
+.main-nav {
+
+  nav {
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    > ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+
+      > li {
+        margin-left: 2rem;
+        list-style: none;
+
+        > a {
+          display: inline-block;
+          padding: 1rem 0;
+        }
+      }
+    }
+  }
+}

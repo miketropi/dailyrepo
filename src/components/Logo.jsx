@@ -1,5 +1,5 @@
 export default function() {
   return <>
-    <a href="/">DailyRepo</a>
+    <a href="/" class="site-brand">Daily repo</a>
   </>
 }
