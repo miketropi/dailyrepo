@@ -48,5 +48,39 @@ export async function GET_TOPICS() {
 }
 
 export async function GET_POSTS() {
+  const _QUERY = gql`query posts($first: Int, $skip: Int, $stage: Stage!, $where: PostWhereInput, $orderBy: PostOrderByInput) {
+    page: postsConnection(
+      first: $first
+      skip: $skip
+      stage: $stage
+      where: $where
+      orderBy: $orderBy
+    ) {
+      edges {
+        node {
+          id
+          createDate
+          featureImage {
+            url
+          }
+          id
+          name
+          slug
+          topics(first: 500) {
+            entryId: id
+            name
+            slug
+          }
+          content {
+            html
+          }
+        }
+      }
+      aggregate {
+        count
+      }
+    }
+  }`;
 
+  return await _Request(_QUERY, {"first":25,"skip":0,"stage":"DRAFT","where":{"AND":[]},"orderBy":null,"locales":null})
 }

@@ -9,10 +9,13 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: 300; 
+  line-height: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-second);
+  // font-family: var(--font-family-second);
+  line-height: 1.5em;
+  margin-top: 0;
 }
 
 h1 {
@@ -47,4 +50,57 @@ a {
   width: var(--container-width);
   margin: 0 auto;
   max-width: calc(100% - 30px);
+}
+
+.container-2-cols {
+  display: flex;
+  justify-content: space-between;
+
+  .site-bar {
+    width: 36%;
+  }
+
+  .content {
+    width: 60%;
+  }
+}
+
+.__sticky { 
+  position: sticky;
+  top: 32px;
+}
+
+.post {
+  padding-bottom: 2em;
+  border-bottom: solid 1px var(--border-color);
+
+  &:not(:first-child) {
+    margin-top: 2em;
+  }
+
+  &__title {
+    margin-bottom: .3em;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      margin-right: 1em;
+    }
+  }
+
+  &__create-date {
+
+  }
+
+  &__term {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+      margin-right: 1em;
+    }
+  }
 }

@@ -4,10 +4,11 @@ import DefaultTemplate from "../templates/default";
 import Welcome from "../components/Welcome";
 import WidgetTopics from "../components/WidgetTopics";
 import Posts from "../components/Posts";
-import { GET_TOPICS } from "../lib/api" 
+import { GET_TOPICS, GET_POSTS } from "../lib/api" 
 
 export default function () {
   const [topics, setTopics] = useState();
+  const [posts, setPosts] = useState();
 
   useEffect( () => {
 
@@ -16,7 +17,13 @@ export default function () {
       setTopics(result)
     }
 
-    _getTopics()
+    const _getPosts = async () => {
+      const result = await GET_POSTS();
+      setPosts(result);
+    }
+
+    _getTopics();
+    _getPosts();
   }, [])
 
   return <DefaultTemplate>
@@ -26,12 +33,12 @@ export default function () {
 
     <div className="container-2-cols">
       <div className="site-bar">
-        <div className="site-bar__inner">
+        <div className="site-bar__inner __sticky">
           <WidgetTopics topics={ topics } />
         </div>
       </div>
       <div className="content">
-        <Posts />
+        <Posts posts={ posts } />
       </div>
     </div>
   </DefaultTemplate>
