@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
+
 export default function WidgetTopics({ title, topics }) {
   return <div className="widget widget-topics">
     {
       (title != null) &&
-      <h4 className="widget-title">{ title }</h4>
+      <h6 className="widget__title">{ title }</h6>
     }
     
     {
@@ -11,7 +13,8 @@ export default function WidgetTopics({ title, topics }) {
         {
           topics?.page?.edges.map(item => {
             return <li key={ item.node.id }>
-              <a href={ `/topic/${ item.node.slug }` }>{ item.node.name }</a> <sup>{ item.node.posts.length }</sup>
+              <Link to={ `/topic/${ item.node.slug }` }>{ item.node.name }</Link> 
+              <sup>{ item.node.posts.length }</sup>
             </li>
           })
         }

@@ -34,7 +34,7 @@ export default function () {
     <div className="container-2-cols">
       <div className="site-bar">
         <div className="site-bar__inner __sticky">
-          <WidgetTopics topics={ topics } />
+          <WidgetTopics topics={ topics } title="Topics" />
         </div>
       </div>
       <div className="content">
