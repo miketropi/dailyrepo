@@ -71,12 +71,29 @@ a {
 
 .__sticky { 
   position: sticky;
-  top: 32px;
+  top: 100px;
 }
 
 .post {
   padding-bottom: 2em;
   border-bottom: solid 1px var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__entry {
+    width: 70%;
+  }
+
+  &__thumbnail {
+    width: 25%;
+    padding-top: 1em;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 
   &:not(:first-child) {
     margin-top: 2em;

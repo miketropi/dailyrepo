@@ -10,19 +10,26 @@ export default function Posts({ posts }) {
         const d = new Date(item.node.createDate);
 
         return <div className="post" key={ item.node.id }>
-          <h2 className="post__title"><a href={ `/article/${ item.node.slug }` }>{ item.node.name }</a></h2>
-          <div className="post__meta">
-            <div className="post__create-date">{ dateFormat(d, "dddd, mmmm dS, yyyy") }</div>
-            <div className="post__term">
-              {
-                (item?.node?.topics.length > 0) && 
-                item.node.topics.map( t => {
-                  return <Link key={ t.slug } to={ `/topic/${ t.slug }` }>{ t.name }</Link>
-                } )
-              }
+          <div className="post__entry">
+            <h2 className="post__title"><a href={ `/article/${ item.node.slug }` }>{ item.node.name }</a></h2>
+            <div className="post__meta">
+              <div className="post__create-date">{ dateFormat(d, "dddd, mmmm dS, yyyy") }</div>
+              <div className="post__term">
+                {
+                  (item?.node?.topics.length > 0) && 
+                  item.node.topics.map( t => {
+                    return <Link key={ t.slug } to={ `/topic/${ t.slug }` }>{ t.name }</Link>
+                  } )
+                }
+              </div>
             </div>
+            <div 
+              className="post__content" 
+              dangerouslySetInnerHTML={{__html: item.node.content.html.substring(0, 150) + '...'}}></div>
           </div>
-          <div className="post__content" dangerouslySetInnerHTML={{__html: item.node.content.html}}></div>
+          <div className="post__thumbnail">
+            <img src={ item?.node?.featureImage?.url } alt={ item.node.name } />
+          </div>
         </div>
       } )
     }

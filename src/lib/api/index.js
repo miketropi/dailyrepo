@@ -61,7 +61,7 @@ export async function GET_POSTS() {
           id
           createDate
           featureImage {
-            url
+            url(transformation: {image: {resize: {height: 250, fit: crop, width: 250}}})
           }
           id
           name
@@ -80,7 +80,8 @@ export async function GET_POSTS() {
         count
       }
     }
-  }`;
+  }
+  `;
 
   return await _Request(_QUERY, {"first":25,"skip":0,"stage":"DRAFT","where":{"AND":[]},"orderBy":null,"locales":null})
 }

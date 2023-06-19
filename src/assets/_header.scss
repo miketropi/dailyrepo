@@ -2,6 +2,10 @@
   background: #FFF;
   padding: .5em 0;
   margin-bottom: 3em;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9;
 }
 
 .header {
