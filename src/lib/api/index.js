@@ -85,3 +85,37 @@ export async function GET_POSTS() {
 
   return await _Request(_QUERY, {"first":25,"skip":0,"stage":"DRAFT","where":{"AND":[]},"orderBy":null,"locales":null})
 }
+
+export async function GET_POST($slug) {
+  const _QUERY = gql`query post {
+    post(where: {slug: "${ $slug }"}) {
+      content {
+        html
+      }
+      createDate
+      featureImage {
+        url(transformation: {image: {resize: {height: 400, width: 550, fit: crop}}})
+      }
+      gallery {
+        ... on Gallery {
+          id
+          name
+          images {
+            url
+          }
+          description
+        }
+      }
+      name
+      slug
+      topics {
+        id
+        name
+      }
+      id
+    }
+  }
+  `;
+
+  return await _Request(_QUERY);
+}
