@@ -46,6 +46,14 @@ a {
   color: var(--accent-color);
 }
 
+.site-brand {
+  width: 150px;
+
+  img {
+    width: 100%;
+  }
+}
+
 .welcome {
   margin-bottom: 5em;
 }
@@ -92,6 +100,14 @@ a {
     img {
       width: 100%;
       max-width: 100%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    img {
+      width: 100%;
     }
   }
 

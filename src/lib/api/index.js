@@ -101,7 +101,12 @@ export async function GET_POST($slug) {
           id
           name
           images {
-            url
+            url(transformation: {image: {resize: {fit: crop, width: 350, height: 350}}})
+            id
+            fileName
+            documentInStages {
+              url
+            }
           }
           description
         }
@@ -111,6 +116,7 @@ export async function GET_POST($slug) {
       topics {
         id
         name
+        slug
       }
       id
     }

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import dateFormat from "dateformat";
 import { GET_POST } from "../../lib/api";
 
 import DefaultTemplate from "../../templates/default";
+import Gallery from "../../components/Gallery";
 
 export default function Article() {
   let { slug } = useParams();
@@ -24,20 +26,35 @@ export default function Article() {
       <p>loading...</p>
     </DefaultTemplate>
   }
+  
+  const d = new Date(post.createDate);
 
   return <DefaultTemplate>
-    <div className="post-single">
+    <div className="post-single post">
       <div className="container-2-cols">
         <div className="site-bar">
           <div className="site-bar__inner __sticky">
-            Hello
+            <h2 className="post__title">{ post.name }</h2>
+            <div className="post__meta">
+              <div className="post__create-date">{ dateFormat(d, "dddd, mmmm dS, yyyy") }</div>
+              <div className="post__tag">
+                {
+                  (post.topics.length > 0) && 
+                  post.topics.map( t => {
+                    return <Link key={ t.slug } to={ `/topic/${ t.slug }` }>{ t.name }</Link>
+                  } )
+                }
+              </div>
+            </div>
           </div>
         </div>
         <div className="content">
-          <div className="post-image">
+          <div className="post__image">
             <img src={ post.featureImage.url } alt={ post.name } />
           </div>
-          <div dangerouslySetInnerHTML={{__html: post.content.html}}></div>
+          <div className="post__content" dangerouslySetInnerHTML={{__html: post.content.html}}></div>
+          <Gallery heading={ post.gallery.heading } />
+          { JSON.stringify(post.gallery) }
         </div>
       </div>
     </div>

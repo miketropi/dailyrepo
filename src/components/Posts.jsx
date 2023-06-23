@@ -1,4 +1,4 @@
-import dateFormat, { masks } from "dateformat";
+import dateFormat from "dateformat";
 import { Link } from "react-router-dom";
 
 export default function Posts({ posts }) {
