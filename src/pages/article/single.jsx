@@ -53,8 +53,16 @@ export default function Article() {
             <img src={ post.featureImage.url } alt={ post.name } />
           </div>
           <div className="post__content" dangerouslySetInnerHTML={{__html: post.content.html}}></div>
-          <Gallery heading={ post.gallery.heading } />
-          { JSON.stringify(post.gallery) }
+          {
+            (post.gallery.length > 0) &&
+            post.gallery.map(g => {
+              return <Gallery 
+                key={ g.id }
+                heading={ g.name } 
+                description={ g.description } 
+                gallery={ g.images } />;
+            })
+          }
         </div>
       </div>
     </div>
