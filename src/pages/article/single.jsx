@@ -5,17 +5,21 @@ import { GET_POST } from "../../lib/api";
 
 import DefaultTemplate from "../../templates/default";
 import Gallery from "../../components/Gallery";
+import { useTitle } from "../../lib/reactUse";
 
 export default function Article() {
   let { slug } = useParams();
+  const [ title, setTitle ] = useState();
   const [ loading, setLoading ] = useState(true);
   const [ post, setPost ] = useState();
+  useTitle( title ); // update title page
 
   useEffect(() => {
     const _getPost = async () => {
       const result = await GET_POST(slug);
       setPost(result.post);
       setLoading(false);
+      setTitle(result.post.name);
     }
 
     _getPost();
@@ -27,9 +31,11 @@ export default function Article() {
     </DefaultTemplate>
   }
   
+  
   const d = new Date(post.createDate);
 
   return <DefaultTemplate>
+    { title }
     <div className="post-single post">
       <div className="container-2-cols">
         <div className="site-bar">

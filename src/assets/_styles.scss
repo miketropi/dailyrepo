@@ -66,14 +66,23 @@ a {
 
 .container-2-cols {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   .site-bar {
     width: 36%;
+    margin-bottom: 3em;
   }
 
   .content {
     width: 60%;
+  }
+
+  @media(max-width: 768px) { 
+    .site-bar,
+    .content {
+      width: 100%;
+    }
   }
 }
 
@@ -213,6 +222,16 @@ a {
       box-sizing: border-box;
       margin-bottom: 20px;
       line-height: normal;
+    }
+
+    @media(max-width:375px) {
+      margin: 0 -5px;
+
+      > * {
+        width: calc((100% / 4));
+        padding: 0 5px;
+        margin-bottom: 10px;
+      }
     }
   }
 }
