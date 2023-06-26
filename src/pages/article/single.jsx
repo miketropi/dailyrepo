@@ -35,7 +35,6 @@ export default function Article() {
   const d = new Date(post.createDate);
 
   return <DefaultTemplate>
-    { title }
     <div className="post-single post">
       <div className="container-2-cols">
         <div className="site-bar">

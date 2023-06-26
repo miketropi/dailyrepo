@@ -14,7 +14,7 @@ function App() {
   return (
     <div id="PAGE">
       <Header />
-      <main>
+      <main id='MAIN'>
         <Routes>
           <Route path='*' element={ <NotFound /> }/>
           <Route path="/" element={ <Home /> } />
