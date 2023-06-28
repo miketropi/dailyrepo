@@ -47,7 +47,9 @@ export async function GET_TOPICS() {
   return await _Request(_QUERY, {"first":25,"skip":0,"stage":"DRAFT","where":{"AND":[]},"orderBy":null,"locales":null})
 }
 
-export async function GET_POSTS() {
+export async function GET_POSTS(paged = 1) {
+  const postPerPage = parseInt(import.meta.env.VITE_POST_PER_PAGE);
+  const skip = (paged == 1 ? 0 : ((paged - 1) * postPerPage));
   const _QUERY = gql`query posts($first: Int, $skip: Int, $stage: Stage!, $where: PostWhereInput, $orderBy: PostOrderByInput) {
     page: postsConnection(
       first: $first
@@ -83,7 +85,7 @@ export async function GET_POSTS() {
   }
   `;
 
-  return await _Request(_QUERY, {"first":25,"skip":0,"stage":"DRAFT","where":{"AND":[]},"orderBy":null,"locales":null})
+  return await _Request(_QUERY, {"first": postPerPage,"skip": skip,"stage":"DRAFT","where":{"AND":[]},"orderBy":"createDate_DESC","locales":null})
 }
 
 export async function GET_POST($slug) {
