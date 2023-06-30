@@ -15,13 +15,12 @@ export default function Pagination({numPage, currentPage = 1, onClick}) {
 
         return <Link 
           className="pagination__item pagination__link" 
-          to={ `/page/${ num }` } 
+          to={ `/${ num }` } 
           key={ n }
           onClick={ e => {
-            e.preventDefault();
-            onClick(num)
+            onClick(num, e);
           } }>
-          { num }
+          { num } 
         </Link>
       })
     }

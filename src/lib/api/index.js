@@ -127,3 +127,32 @@ export async function GET_POST($slug) {
 
   return await _Request(_QUERY);
 }
+
+export async function GET_TOPIC($slug) {
+  const _QUERY = gql`query topic {
+    topic(where: {slug: "${ $slug }"}) {
+      id
+      name
+      slug
+      createDate
+      description {
+        html
+      }
+      posts(orderBy: createDate_DESC) {
+        id
+        name
+        slug
+        createDate
+        featureImage {
+          url(transformation: {image: {resize: {height: 200, width: 200, fit: crop}}})
+        }
+      }
+      featureImage {
+        url(transformation: {image: {resize: {height: 300, width: 300, fit: crop}}})
+      }
+    }
+  }
+  `;
+
+  return await _Request(_QUERY);
+}

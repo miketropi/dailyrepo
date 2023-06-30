@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import DefaultTemplate from "../templates/default";
 import Welcome from "../components/Welcome";
 import WidgetTopics from "../components/WidgetTopics";
@@ -6,13 +7,15 @@ import Posts from "../components/Posts";
 import Pagination from "../components/Pagination";
 import { GET_TOPICS, GET_POSTS } from "../lib/api" 
 
-const POST_PER_PAGE = parseInt(import.meta.env.VITE_POST_PER_PAGE);
+const POST_PER_PAGE = parseInt(import.meta.env.VITE_POST_PER_PAGE); 
 
 export default function () {
+  let { paged } = useParams();
+
   const [topics, setTopics] = useState();
   const [posts, setPosts] = useState();
   const [totalPage, setTotalPage] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState( paged ?? 1 );
 
   const _getPosts = async () => {
     const result = await GET_POSTS(currentPage);
@@ -47,10 +50,7 @@ export default function () {
       </div>
       <div className="content">
         <Posts posts={ posts } />
-        
-        <Pagination numPage={ totalPage } currentPage={ currentPage } onClick={ n => {
-          setCurrentPage(n)
-        } } />
+        <Pagination numPage={ totalPage } currentPage={ currentPage } />
       </div>
     </div>
   </DefaultTemplate>
