@@ -17,19 +17,13 @@ export async function GET_TOPICS() {
         node {
           id
           featureImage {
-            url
+            url(transformation: {image: {resize: {height: 600, width: 600, fit: crop}}})
             handle
           }
           id
           name
-          posts(first: 500) {
+          posts {
             entryId: id
-            documentInStages(includeCurrent: true) {
-              id
-              stage
-              updatedAt
-              publishedAt
-            }
           }
           slug
           description {
@@ -42,9 +36,10 @@ export async function GET_TOPICS() {
         count
       }
     }
-  }`
+  }
+  `
 
-  return await _Request(_QUERY, {"first":25,"skip":0,"stage":"DRAFT","where":{"AND":[]},"orderBy":null,"locales":null})
+  return await _Request(_QUERY, {"first":100,"skip":0,"stage":"DRAFT","where":{"AND":[]},"orderBy":null,"locales":null})
 }
 
 export async function GET_POSTS(paged = 1) {

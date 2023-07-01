@@ -297,3 +297,54 @@ a {
     }
   }
 }
+
+.topic-block-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+
+  .term {
+    width: calc(100% / 3);
+    padding: 0 15px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+
+    @media(max-width: 658px) {
+      width: calc(100% / 2);
+    }
+
+    @media(max-width: 425px) {
+      width: calc(100% / 1);
+    }
+
+    &__inner {
+      background: white;
+    }
+
+    &__image {
+      width: 100%;
+      margin-bottom: .2em;
+    }
+
+    &__entry {
+      padding: 1em;
+      width: 100%;
+      box-sizing: border-box;
+
+      h4 {
+        font-size: 1.1em;
+        margin-bottom: .3em;
+        line-height: normal;
+        display: block;
+
+        a {
+          margin-right: .3em;
+        }
+      }
+    }
+
+    &__create-date {
+      font-size: .9em;
+    }
+  }
+}
