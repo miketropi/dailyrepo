@@ -15,7 +15,7 @@ export default function () {
   const [topics, setTopics] = useState();
   const [posts, setPosts] = useState();
   const [totalPage, setTotalPage] = useState(0);
-  const [currentPage, setCurrentPage] = useState( paged ?? 1 );
+  const [currentPage] = useState( paged ?? 1 );
 
   const _getPosts = async () => {
     const result = await GET_POSTS(currentPage);
