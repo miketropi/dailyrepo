@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { GET_TOPIC } from '../../lib/api';
 import dateFormat from "dateformat";
-import DefaultTemplate from "../../templates/default"
+import DefaultTemplate from "../../templates/DefaultTemplate"
 
 export default function Topic() {
   const { slug } = useParams();

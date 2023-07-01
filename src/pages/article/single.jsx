@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import dateFormat from "dateformat";
 import { GET_POST } from "../../lib/api";
 
-import DefaultTemplate from "../../templates/default";
+import DefaultTemplate from "../../templates/DefaultTemplate";
 import Gallery from "../../components/Gallery";
 import { useTitle } from "../../lib/reactUse";
 

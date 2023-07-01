@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import DefaultTemplate from "../templates/default";
+import DefaultTemplate from "../templates/DefaultTemplate";
 import Welcome from "../components/Welcome";
 import WidgetTopics from "../components/WidgetTopics";
 import Posts from "../components/Posts";

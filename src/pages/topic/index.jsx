@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import DefaultTemplate from "../../templates/default";
+import DefaultTemplate from "../../templates/DefaultTemplate";
 import { GET_TOPICS } from "../../lib/api";
 import TopicBlockList from "../../components/TopicBlockList";
 
