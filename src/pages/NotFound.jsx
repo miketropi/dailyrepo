@@ -1,4 +1,4 @@
-import DefaultTemplate from "../templates/default"
+import DefaultTemplate from "../templates/DefaultTemplate"
 
 export default function() {
   return <DefaultTemplate>
