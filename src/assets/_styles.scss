@@ -46,6 +46,15 @@ a {
   color: var(--accent-color);
 }
 
+blockquote {
+  padding: 2em;
+  background: #efefef;
+  margin: 2em 0;
+  border-left: 4px solid #cfcfcf;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
 .site-brand {
   width: 150px;
 
