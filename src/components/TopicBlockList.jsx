@@ -9,9 +9,13 @@ export default function TopicBlockList({ topics }) {
         const d = new Date(createDate);
         return <div className="term term__item" key={ id }>
           <div className="term__inner">
-            <Link to={ `/topic/${ slug }` }>
-              <img className="term__image" src={ featureImage.url } alt={ name } />
-            </Link>
+            {
+              featureImage?.url &&
+              <Link to={ `/topic/${ slug }` }>
+                <img className="term__image" src={ featureImage.url } alt={ name } />
+              </Link>
+            }
+            
             <div className="term__entry">
               <h4>
                 <Link to={ `/topic/${ slug }` }>{ name }</Link> 

@@ -33,7 +33,7 @@ export default function Topic() {
         <div className="site-bar">
           <div className="site-bar__inner __sticky">
             <div className="term__info">
-              <img className="term__thumb" src={ topic.featureImage.url } alt={ topic.name } />
+              <img className="term__thumb" src={ topic?.featureImage?.url } alt={ topic.name } />
               <div className="term__entry">
                 <h2>{ topic.name }</h2>
                 <div className="term-meta">
